@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                background-color: dimgray;
+            }
+            h1{
+                text-align: center;
+                color: white;
+            }
+            .container{
+                width: 38%;
+                margin: 0 auto;
+            }
+            h2{
+                text-align: center;
+            }
+            form{
+                background-color: rgba(240,240,240,0.5);
+                border-radius: 10px
+                width: 500px;
+                height: 570px;
+            }
+            .content{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding: 20px 0;
+            }
+            .inp{
+                display: flex;
+                flex-wrap: wrap;
+                width: 50%;
+                padding-bottom: 10px;
+            }
+            .inp:nth-child(2n){
+                justify-content: end;
+            }
+            .inp label{
+                width: 95%;
+                margin: 5px 0;
+            }
+            .inp input{
+                height: 30px;
+                width: 75%;
+                padding: 0 10px;
+                border-radius: 5px;
+            }
+            .inp select{
+                height: 30px;
+                width: 85%;
+                padding: 0 10px;
+                border-radius: 5px;
+            }
+            .inp label{
+                font-weight: bold;
+            }
+            .btn{
+                padding-left: 203px;
+            }
+            .btn button{
+                height:20px;
+                width:75px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>HOUSE PRICE PREDICTION INDIA</h1>
+        <div class="container">
+            <form action="/predict" method='POST'>
+                <h2>Predict...</h2>
+                <div class="content">
+                    <div class="inp">
+                        <label for="property_type">Type Of Property</label><br>
+                        <select name="property_type" id="property_type">
+                            <option value="House">House</option>
+                            <option value="Flat">Flat</option>
+                            <option value="Upper Portion">Upper Portion</option>
+                            <option value="Lower Portion">Lower Portion</option>
+                        </select>
+                    </div>
+                    <div class="inp">
+                        <label for="location">Location</label><br> 
+                        <select name="location" id="location">
+                            <option value="Bahria Town Karachi">Bahria Town Karachi</option>
+                            <option value="DHA Defence">DHA Defence</option>
+                            <option value="Bahria Town">Bahria Town</option>
+                            <option value="Bahria Town Rawalpindi">Bahria Town Rawalpindi</option>
+                            <option value="I-8">I-8</option>
+                            <option value="G-13">G-13</option>
+                            <option value="Gulistan-e-Jauhar">Gulistan-e-Jauhar</option>
+                            <option value="North Karachi">North Karachi</option>
+                            <option value="Johar Town">Johar Town</option>
+                            <option value="Scheme 33">Scheme 33</option>
+                            <option value="E-11">E-11</option>
+                            <option value="Clifton">Clifton</option>
+                            <option value="North Nazimabad">North Nazimabad</option>
+                            <option value="Gulshan-e-Iqbal Town">Gulshan-e-Iqbal Town</option>
+                            <option value="G-11">G-11</option>
+                            <option value="F-11">F-11</option>
+                            <option value="Gadap Town">Gadap Town</option>
+                            <option value="Cantt">Cantt</option>
+                            <option value="Federal B Area">Federal B Area</option>
+                        </select>
+                    </div>
+                    <div class="inp">
+                        <label for="city">City</label><br>
+                        <select name="city" id="city">
+                            <option value="Karachi">Karachi</option>
+                            <option value="Lahore">Lahore</option>
+                            <option value="Islamabad">Islamabad</option>
+                            <option value="Rawalpindi">Rawalpindi</option>
+                            <option value="Faisalabad">Faisalabad</option>
+                        </select>
+                    </div>
+                    <div class="inp">
+                        <label for="province_name">Province Name</label><br>
+                        <select name="province_name" id="province_name">
+                            <option value="Punjab">Punjab</option>
+                            <option value="Sindh">Sindh</option>
+                            <option value="Islamabad Capital">Islamabad Capital</option>
+                        </select>
+                    </div>
+                    <div class="inp">
+                        <label for="latitude">Latitude</label><br>
+                        <input type="number" name='latitude' value='latitude'>
+                    </div>
+                    <div class="inp">
+                        <label for="longitude">Longitude</label><br>
+                        <input type="number" name='longitude' value='longitude'>
+                    </div>
+                    <div class="inp">
+                        <label for="baths">No. of Bathrooms</label><br>
+                        <input type="number" name='baths' value='baths'>
+                    </div>
+                    <div class="inp">
+                        <label for="purpose">Purpose</label><br>
+                        <select name="purpose" id="purpose">
+                            <option value="For Sale">For Sale</option>
+                            <option value="For Rent">For Rent</option>
+                        </select>
+                    </div>
+                    <div class="inp">
+                        <label for="bedrooms">No Of Bedrooms</label><br>
+                        <input type="number" name='bedrooms' value = 'bedrooms'>
+                    </div>
+                    <div class="inp">
+                        <label for="Area Type">Area Type</label><br>
+                        <select name="Area Type" id="Area Type">
+                            <option value="Marla">Marla</option>
+                            <option value="Kanal">Kanal</option>
+                        </select>
+                    </div>
+                    <div class="inp">
+                        <label for="Area Size">Area Size</label><br>
+                        <input type="number" name='Area Size' value = 'Area Size'>
+                    </div>
+                    <div class="inp">
+                        <label for="Area Category">Area Category</label><br>
+                        <select name="Area Category" id="Area Category">
+                            <option value="5-10 Marla">5-10 Marla</option>
+                            <option value="1-5 Kanal">1-5 Kanal</option>
+                            <option value="0-5 Marla">0-5 Marla</option>
+                            <option value="10-15 Marla">10-15 Marla</option>
+                            <option value="15-20 Marla">15-20 Marla</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn">
+                    <button type='submit'>Predict</button>
+                </div>
+                <h2>{{pred_text}}</h2>
+            </form>
+        </div>
+    </body>
+</html>
